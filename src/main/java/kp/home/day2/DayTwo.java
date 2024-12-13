@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,6 +32,17 @@ public class DayTwo {
 
                 if (isSafe(numberList)) {
                     safe++;
+                } else {
+                    // apply dampner - see if safe when element removed
+                    for (int i = 0; i < numberList.size(); i++) {
+                        List<Integer> newList = new ArrayList<>(numberList);
+                        newList.remove(i);
+                        if (isSafe(newList)) {
+                            safe++;
+                            break;
+                        }
+                    }
+
                 }
             }
         } catch (IOException e) {

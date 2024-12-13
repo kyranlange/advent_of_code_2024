@@ -25,7 +25,4 @@ class DayTwoTest {
         Assertions.assertFalse(two.isSafe(e));
         Assertions.assertTrue(two.isSafe(f));
     }
-
-
-
 }
